@@ -16,14 +16,15 @@ const Bottom = styled.div`
 
 class Post extends Component {
   render() {
+    const { comments } = this.props
     return (
       <div>
         <Wrap>
           <Upper>
-            <PostBody />
+            <PostBody comments={comments} />
           </Upper>
           <Bottom>
-            <CommentBox />
+            <CommentBox comments={comments} />
           </Bottom>
         </Wrap>
       </div>
