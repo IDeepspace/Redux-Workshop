@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
+import shortid from 'shortid';
 
 const Wrap = styled.div`
   background-color: #fff;
@@ -8,9 +9,99 @@ const Wrap = styled.div`
   box-shadow: 0 2px 2px rgba(0, 0, 0, 0.5);
   height: 300px;
 `
-class CommentBox extends Component {
-  render() {
-    return <Wrap>Comments</Wrap>
+const FormWrap = styled.div`
+  display: flex;
+  padding: 10px;
+`
+const Input = styled.input`
+  flex-grow: 1;
+  height: 30px;
+  line-height: 30px;
+  border: 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+  :focus {
+    outline: none;
+    border-bottom: 1px solid deeppink;
   }
+`
+const Button = styled.div`
+  background-color: deeppink;
+  margin-left: 10px;
+  padding: 0 10px;
+  border: none;
+  line-height: 30px;
+  :focus {
+    outline: none;
+  }
+  :hover {
+    cursor: pointer;
+  }
+  color: white;
+`
+const CmtList = styled.div`
+  padding: 10px;
+  div {
+    line-height: 30px;
+  }
+`
+
+class CommentBox extends Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+            text: '',
+            comments: [
+                {
+                    id: '111',
+                    text: 'hello'
+                },
+                {
+                    id: '222',
+                    text: 'react'
+                }
+            ]
+        }
+    }
+
+    handleChange = e => {
+        e.preventDefault()
+        this.setState({
+            text: e.target.value
+        })
+    }
+
+    submitCmt = e => {
+        e.preventDefault()
+        const { text } = this.state
+        const id = shortid()
+        const comments = [...this.state.comments, { id, text }]
+        this.setState({
+            text: '',
+            comments
+        })
+    }
+
+    render() {
+        const commentForm = (
+            <FormWrap>
+                <Input value={this.state.text} onChange={this.handleChange} />
+                <Button onClick={this.submitCmt}>提交</Button>
+            </FormWrap>
+        )
+
+        const { comments } = this.state
+        const reversedComments = [...comments].reverse()
+        const commentList = reversedComments.map(item => (
+            <div key={item.id}>{item.text}</div>
+        ))
+
+        return (
+            <Wrap>
+                {commentForm}
+                <CmtList>{commentList}</CmtList>
+            </Wrap>
+        )
+    }
 }
+
 export default CommentBox
