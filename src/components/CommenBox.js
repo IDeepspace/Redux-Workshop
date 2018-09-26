@@ -63,6 +63,13 @@ class CommentBox extends Component {
 
     submitCmt = e => {
         e.preventDefault()
+        const { text } = this.state
+        const id = shortid()
+        const comment = {
+            id,
+            text
+        }
+        store.dispatch({ type: 'ADD_COMMENT', comment })
         this.setState({
             text: '',
         })
