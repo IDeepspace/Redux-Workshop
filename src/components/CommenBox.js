@@ -67,7 +67,8 @@ class CommentBox extends Component {
         const id = shortid()
         const comment = {
             id,
-            text
+            text,
+            postId: this.props.postId
         }
         store.dispatch({ type: 'ADD_COMMENT', comment })
         this.setState({
@@ -83,8 +84,11 @@ class CommentBox extends Component {
             </FormWrap>
         )
 
-        const comments = store.getState().comments
-        const reversedComments = [...comments].reverse()
+        const { comments, postId } = this.props
+        const currentComments = comments.filter(comments => {
+            return comments.postId === postId
+        })
+        const reversedComments = [...currentComments].reverse()
         const commentList = reversedComments.map(item => (
             <div key={item.id}>{item.text}</div>
         ))

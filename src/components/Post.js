@@ -18,14 +18,17 @@ class Post extends Component {
   render() {
     const { comments, match, posts } = this.props
     const { id } = match.params
+    const currentComments = comments.filter(t => {
+      return t.postId === id
+    })
     return (
       <div>
         <Wrap>
           <Upper>
-            <PostBody id={id} posts={posts} comments={comments} />
+            <PostBody id={id} posts={posts} comments={currentComments} />
           </Upper>
           <Bottom>
-            <CommentBox comments={comments} />
+            <CommentBox postId={id} comments={currentComments} />
           </Bottom>
         </Wrap>
       </div>
