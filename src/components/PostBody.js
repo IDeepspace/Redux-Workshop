@@ -3,15 +3,26 @@ import styled from 'styled-components'
 
 class PostBody extends Component {
   render() {
-    const { comments } = this.props
+    const { comments, posts, id } = this.props
+    const post = posts.find(t => {
+      return id === t.id
+    })
     return (
       <Wrap>
+        <Title>
+          {post.title}
+        </Title>
         <CommentNo>{comments.length} 评论</CommentNo>
       </Wrap>
     )
   }
 }
 
+
+const Title = styled.div`
+  text-align: center;
+  font-size: 30px;
+`
 
 const CommentNo = styled.div`
   position: absolute;
