@@ -1,20 +1,10 @@
-const initialState = [
-    {
-        id: '111',
-        text: 'hello'
-    },
-    {
-        id: '222',
-        text: 'react'
-    }
-]
-const rootReducer = (state = initialState, action) => {
-    switch (action.type) {
-        case 'ADD_COMMENT':
-            const comments = [...state, action.comment]
-            return comments
-        default:
-            return state
-    }
-}
+import { combineReducers } from 'redux';
+import comments from './comments';
+import posts from './posts';
+
+const rootReducer = combineReducers({
+    comments,
+    posts
+})
+
 export default rootReducer

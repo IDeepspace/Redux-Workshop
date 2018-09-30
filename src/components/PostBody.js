@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
-import store from '../store';
 
 class PostBody extends Component {
   render() {

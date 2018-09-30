@@ -83,7 +83,7 @@ class CommentBox extends Component {
             </FormWrap>
         )
 
-        const comments = store.getState()
+        const comments = store.getState().comments
         const reversedComments = [...comments].reverse()
         const commentList = reversedComments.map(item => (
             <div key={item.id}>{item.text}</div>
