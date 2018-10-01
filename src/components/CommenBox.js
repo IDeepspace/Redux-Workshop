@@ -1,8 +1,6 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
 import shortid from 'shortid';
-import store from '../store'
-import { addComment } from '../actions'
 
 const Wrap = styled.div`
   background-color: #fff;
@@ -71,7 +69,7 @@ class CommentBox extends Component {
             text,
             postId: this.props.postId
         }
-        store.dispatch(addComment(comment))
+        this.props.addComment(comment)
         this.setState({
             text: '',
         })

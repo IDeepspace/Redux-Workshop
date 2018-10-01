@@ -16,7 +16,7 @@ const Bottom = styled.div`
 
 class Post extends Component {
   render() {
-    const { comments, match, posts } = this.props
+    const { comments, match, posts, addComment } = this.props
     const { id } = match.params
     const currentComments = comments.filter(t => {
       return t.postId === id
@@ -28,7 +28,7 @@ class Post extends Component {
             <PostBody id={id} posts={posts} comments={currentComments} />
           </Upper>
           <Bottom>
-            <CommentBox postId={id} comments={currentComments} />
+            <CommentBox postId={id} comments={currentComments} addComment={addComment} />
           </Bottom>
         </Wrap>
       </div>
