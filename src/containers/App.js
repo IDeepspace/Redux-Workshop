@@ -3,13 +3,14 @@ import Main from '../components/Main'
 import axios from 'axios';
 import { connect } from 'react-redux'
 import { fetchPosts } from '../actions'
+import { fetchComments } from '../actions'
 
 class App extends Component {
 
   componentDidMount() {
     this.props.fetchPosts()
+    this.props.fetchComments()
   }
-
   render() {
     return (
       <div>
@@ -20,5 +21,6 @@ class App extends Component {
 }
 
 export default connect(null, {
-  fetchPosts
+  fetchPosts,
+  fetchComments
 })(App)

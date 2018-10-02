@@ -1,22 +1,17 @@
-const initialState = [
-    {
-        id: '111',
-        text: 'hello',
-        postId: '1'
-    },
-    {
-        id: '222',
-        text: 'react',
-        postId: '2'
-    }
-]
-const comments = (state = initialState, action) => {
+
+const comments = (state = [], action) => {
     switch (action.type) {
+        case 'LOAD_COMMENTS':
+            return action.comments
         case 'ADD_COMMENT':
-            const comments = [...state, action.comment]
+            const comments = [
+                ...state,
+                action.comment
+            ]
             return comments
         default:
             return state
     }
 }
+
 export default comments

@@ -7,7 +7,7 @@ const Wrap = styled.div`
   width: 400px;
   margin: 30px auto;
   box-shadow: 0 2px 2px rgba(0, 0, 0, 0.5);
-  height: 300px;
+  min-height: 300px;
 `
 const FormWrap = styled.div`
   display: flex;
@@ -45,6 +45,11 @@ const CmtList = styled.div`
   }
 `
 
+const Comment = styled.div`
+  border-bottom: 1px solid #00bcd4;
+  margin-bottom: 20px;
+`
+
 class CommentBox extends Component {
     constructor(props) {
         super(props)
@@ -66,7 +71,7 @@ class CommentBox extends Component {
         const id = shortid()
         const comment = {
             id,
-            text,
+            body: text,
             postId: this.props.postId
         }
         this.props.addComment(comment)
@@ -83,14 +88,9 @@ class CommentBox extends Component {
             </FormWrap>
         )
 
-        const { comments, postId } = this.props
-        const currentComments = comments.filter(comments => {
-            return comments.postId === postId
-        })
-        const reversedComments = [...currentComments].reverse()
-        const commentList = reversedComments.map(item => (
-            <div key={item.id}>{item.text}</div>
-        ))
+        const { comments } = this.props
+        const reversedComments = [...comments].reverse()
+        const commentList = reversedComments.map(t => <Comment key={t.id}>{t.body}</Comment>)
 
         return (
             <Wrap>
