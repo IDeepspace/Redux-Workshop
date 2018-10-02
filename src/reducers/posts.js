@@ -1,16 +1,11 @@
-const initialState = [
-    {
-        id: '11',
-        title: 'title-hello'
-    },
-    {
-        id: '22',
-        title: 'title-react'
+const posts = (state = [], action) => {
+    switch (action.type) {
+        case "LOAD_POSTS":
+            return action.posts
+        default:
+            return state
     }
-]
 
-const posts = (state = initialState, action) => {
-    return state
 }
 
 export default posts

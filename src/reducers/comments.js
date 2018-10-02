@@ -2,12 +2,12 @@ const initialState = [
     {
         id: '111',
         text: 'hello',
-        postId: '11'
+        postId: '1'
     },
     {
         id: '222',
         text: 'react',
-        postId: '22'
+        postId: '2'
     }
 ]
 const comments = (state = initialState, action) => {

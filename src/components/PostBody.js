@@ -5,8 +5,8 @@ class PostBody extends Component {
   render() {
     const { comments, posts, id } = this.props
     const post = posts.find(t => {
-      return id === t.id
-    })
+      return id === t.id.toString()
+    }) || {}
     return (
       <Wrap>
         <Title>
