@@ -1,19 +1,13 @@
 import React, { Component } from 'react'
 import Main from '../components/Main'
 import axios from 'axios';
-import store from '../store/index';
+import { connect } from 'react-redux'
+import { fetchPosts } from '../actions'
 
 class App extends Component {
 
   componentDidMount() {
-    const uri = `https://jsonplaceholder.typicode.com/posts`
-    axios.get(uri).then(res => {
-      const posts = res.data
-      store.dispatch({
-        type: "LOAD_POSTS",
-        posts
-      })
-    })
+    this.props.fetchPosts()
   }
 
   render() {
@@ -25,4 +19,6 @@ class App extends Component {
   }
 }
 
-export default App
+export default connect(null, {
+  fetchPosts
+})(App)
