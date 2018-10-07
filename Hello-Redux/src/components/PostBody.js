@@ -18,7 +18,6 @@ class PostBody extends Component {
   }
 }
 
-
 const Title = styled.div`
   text-align: center;
   font-size: 30px;
@@ -42,4 +41,5 @@ const Wrap = styled.div`
   flex-direction: column;
   justify-content: space-around;
 `
+
 export default PostBody

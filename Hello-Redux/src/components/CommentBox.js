@@ -2,54 +2,6 @@ import React, { Component } from 'react'
 import styled from 'styled-components'
 import shortid from 'shortid';
 
-const Wrap = styled.div`
-  background-color: #fff;
-  width: 400px;
-  margin: 30px auto;
-  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.5);
-  min-height: 300px;
-`
-const FormWrap = styled.div`
-  display: flex;
-  padding: 10px;
-`
-const Input = styled.input`
-  flex-grow: 1;
-  height: 30px;
-  line-height: 30px;
-  border: 0;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.5);
-  :focus {
-    outline: none;
-    border-bottom: 1px solid deeppink;
-  }
-`
-const Button = styled.div`
-  background-color: deeppink;
-  margin-left: 10px;
-  padding: 0 10px;
-  border: none;
-  line-height: 30px;
-  :focus {
-    outline: none;
-  }
-  :hover {
-    cursor: pointer;
-  }
-  color: white;
-`
-const CmtList = styled.div`
-  padding: 10px;
-  div {
-    line-height: 30px;
-  }
-`
-
-const Comment = styled.div`
-  border-bottom: 1px solid #00bcd4;
-  margin-bottom: 20px;
-`
-
 class CommentBox extends Component {
     constructor(props) {
         super(props)
@@ -100,5 +52,53 @@ class CommentBox extends Component {
         )
     }
 }
+
+const Wrap = styled.div`
+  background-color: #fff;
+  width: 400px;
+  margin: 30px auto;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.5);
+  min-height: 300px;
+`
+const FormWrap = styled.div`
+  display: flex;
+  padding: 10px;
+`
+const Input = styled.input`
+  flex-grow: 1;
+  height: 30px;
+  line-height: 30px;
+  border: 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+  :focus {
+    outline: none;
+    border-bottom: 1px solid deeppink;
+  }
+`
+const Button = styled.div`
+  background-color: deeppink;
+  margin-left: 10px;
+  padding: 0 10px;
+  border: none;
+  line-height: 30px;
+  :focus {
+    outline: none;
+  }
+  :hover {
+    cursor: pointer;
+  }
+  color: white;
+`
+const CmtList = styled.div`
+  padding: 10px;
+  div {
+    line-height: 30px;
+  }
+`
+
+const Comment = styled.div`
+  border-bottom: 1px solid #00bcd4;
+  margin-bottom: 20px;
+`
 
 export default CommentBox

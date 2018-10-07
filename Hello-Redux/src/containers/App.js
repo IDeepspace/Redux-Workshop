@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import Main from '../components/Main'
-import axios from 'axios';
 import { connect } from 'react-redux'
 import { fetchPosts } from '../actions'
 import { fetchComments } from '../actions'
